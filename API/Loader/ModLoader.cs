@@ -56,7 +56,6 @@ namespace BloonsLoader.API.Loader
                         modCount++;
                         Array.Resize(ref Mods, modCount + 1);
                         Mods[modCount] = Activator.CreateInstance(type) as Mod;
-                        MelonLogger.Log("is this what's fucking throwing it");
                         MelonLogger.Log($"Loaded mod: {Mods[modCount].DisplayName} version: {Mods[modCount].ModVersion}");
                     }
 
