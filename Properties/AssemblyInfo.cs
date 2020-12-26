@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using BloonsLoader;
+using MelonLoader;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -34,3 +36,7 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+// Melon Loader
+[assembly: MelonInfo(typeof(BloonsLoader.BloonsLoader), "BloonsLoader", "0.0.1.0", "convicted tomatophile (Stevie)")]
+[assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
