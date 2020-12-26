@@ -46,18 +46,12 @@ namespace BloonsLoader.API.Loader
 
             foreach (Assembly loadedMod in loadedMods)
                 foreach (Type type in loadedMod.GetTypes())
-                {
-                    if (type.IsAssignableFrom(typeof(Mod)))
+                    if (type.IsSubclassOf(typeof(Mod)))
                     {
                         Mod mod = Activator.CreateInstance(type) as Mod;
                         Mods.Add(mod);
                         MelonLogger.Log($"Loaded mod: {mod.DisplayName} version: {mod.ModVersion}");
                     }
-                    else
-                    {
-                        MelonLogger.Log("nope");
-                    }
-                }
 
             MelonLogger.Log("Loaded mods.");
         }
