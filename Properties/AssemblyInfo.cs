@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("BloonsLoader")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Mod loader made for Bloons Tower Defense 6 by Ninja Kiwi. Aims to provide basic automated loading.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("BloonsLoader")]
