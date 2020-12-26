@@ -1,6 +1,6 @@
-﻿using Il2CppSystem.Collections.Generic;
-using MelonLoader;
+﻿using MelonLoader;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -11,7 +11,7 @@ namespace BloonsLoader.API.Loader
         /// <summary>
         /// List of loaded mods.
         /// </summary>
-        public static Mod[] Mods;
+        public static List<Mod> Mods;
 
         public static List<string> FindMods()
         {
@@ -36,28 +36,28 @@ namespace BloonsLoader.API.Loader
         {
             MelonLogger.Log("Loading mods.");
 
-            int modCount = 0;
             List<string> modsToLoad = FindMods();
-            Assembly[] loadedMods = new Assembly[modCount];
+            List<Assembly> loadedMods = new List<Assembly>();
+
+            Mods = new List<Mod>();
 
             foreach (string mod in modsToLoad)
-            {
-                modCount++;
-                Array.Resize(ref loadedMods, modCount + 1);
-                loadedMods[modCount] = Assembly.LoadFile(mod);
-            }
-
-            modCount = 0;
+                loadedMods.Add(Assembly.LoadFile(mod));
 
             foreach (Assembly loadedMod in loadedMods)
                 foreach (Type type in loadedMod.GetTypes())
+                {
                     if (type.IsAssignableFrom(typeof(Mod)))
                     {
-                        modCount++;
-                        Array.Resize(ref Mods, modCount + 1);
-                        Mods[modCount] = Activator.CreateInstance(type) as Mod;
-                        MelonLogger.Log($"Loaded mod: {Mods[modCount].DisplayName} version: {Mods[modCount].ModVersion}");
+                        Mod mod = Activator.CreateInstance(type) as Mod;
+                        Mods.Add(mod);
+                        MelonLogger.Log($"Loaded mod: {mod.DisplayName} version: {mod.ModVersion}");
                     }
+                    else
+                    {
+                        MelonLogger.Log("nope");
+                    }
+                }
 
             MelonLogger.Log("Loaded mods.");
         }
