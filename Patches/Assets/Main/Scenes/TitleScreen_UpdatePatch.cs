@@ -26,7 +26,7 @@ namespace BloonsLoader.Patches.Assets.Main.Scenes
                 buildInfoPos.x *= 4;
                 __instance.buildInfo.transform.position = buildInfoPos;
 
-                __instance.buildInfo.text += "\nBloonsLoader v0.0.1.0";
+                __instance.buildInfo.text = "BloonsLoader v0.0.1.0\n" + __instance.buildInfo.text;
 
                 // Color a specific word
                 __instance.anEpicAdventureOf.text = "an epic modded adventure of monkeys vs bloons"; // Text splitting pre-handled

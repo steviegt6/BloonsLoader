@@ -49,6 +49,7 @@ namespace BloonsLoader.API.Loader
                     if (type.IsSubclassOf(typeof(Mod)))
                     {
                         Mod mod = Activator.CreateInstance(type) as Mod;
+                        mod.Code = type.Assembly;
                         Mods.Add(mod);
                         MelonLogger.Log($"Loaded mod: {mod.DisplayName} version: {mod.ModVersion}");
                     }

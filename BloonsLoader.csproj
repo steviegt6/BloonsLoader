@@ -64,6 +64,10 @@
     <Reference Include="UnityEngine.UI, Version=3.7.1.6, Culture=neutral, PublicKeyToken=null" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Loader\Globals\GlobalBloon.cs" />
+    <Compile Include="API\Loader\Hooks\BloonHooks.cs" />
+    <Compile Include="API\Loader\Interfaces\IAutoloadable.cs" />
+    <Compile Include="API\Loader\Interfaces\ILoadable.cs" />
     <Compile Include="API\Loader\ModLoader.cs" />
     <Compile Include="API\Mod.cs" />
     <Compile Include="BloonsLoader.cs" />

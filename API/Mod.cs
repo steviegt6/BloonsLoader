@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace BloonsLoader.API
 {
@@ -13,6 +14,8 @@ namespace BloonsLoader.API
         public abstract Version ModVersion { get; }
 
         public abstract string Description { get; }
+
+        public Assembly Code { get; internal set; }
 
         /// <summary>
         /// Allows you to do things before loading has started. <br />
